@@ -9,7 +9,7 @@ The goal is to demonstrate a simple yet responsive fitness timer with a clean mo
 # Preview
 
 <div>
-  <img src="./screenshots/Animated.gif" width="25%">
+  <img src="./screenshots/Animated.gif" width="24%">
 </div>
 
 # Use Cases
@@ -29,36 +29,22 @@ The goal is to demonstrate a simple yet responsive fitness timer with a clean mo
     - `@kit.ArkUI`
     - `@kit.PerformanceAnalysisKit`
 
-# Project Directory
+# Directory Structure
 
 ```
-├── AppScope/
-│ ├── app.json5
-│ └── resources/
-│ └── base/
-│ ├── element/
-│ │ └── string.json
-│ └── media/
-│ ├── background.png
-│ ├── foreground.png
-│ └── layered_image.json
 ├── entry/
 │ └── src/
 │ ├── main/
 │ │ ├── ets/
-│ │ │ ├── entryability/ # Ability implementation
-│ │ │ ├── pages/ # Main application pages
+│ │ │ ├── entryability/ 
+│ │ │ │ └── EntryAbility.ets 
+│ │ │ ├── entrybackupability/ 
+│ │ │ │ └── EntryBackupAbility.ets 
+│ │ │ ├── models/ 
+│ │ │ │ └── WorkoutTimerModel.ets # logic implementation
+│ │ │ ├── pages/ 
 │ │ │ │ └── Index.ets # Fitness timer implementation
-│ │ │ └── components/ # Reusable UI components
-│ │ ├── module.json5
-│ │ └── resources/
-│ │ ├── base/ # Base resources
-│ │ ├── dark/ # Dark mode resources
-│ │ └── rawfile/ # Raw assets
-│ └── ohosTest/ # Test cases
-├── screenshots/ # Application screenshots
-│ ├── work_phase.png
-│ └── rest_phase.png
+
 ```
 
 # Constraints and Restrictions

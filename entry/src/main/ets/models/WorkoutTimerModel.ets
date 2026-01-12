@@ -4,7 +4,6 @@ export class WorkoutTimerModel {
   isWorkPhase: boolean = true
   currentRound: number = 1
   secondsRemaining: number
-
   private readonly workDuration: number
   private readonly restDuration: number
   private readonly totalRounds: number
@@ -24,9 +23,7 @@ export class WorkoutTimerModel {
   formatTime(
     seconds: number
   ): string {
-    const mins: number = Math.floor(
-      seconds / 60
-    )
+    const mins: number = Math.floor(seconds / 60)
     const secs: number = seconds % 60
     return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`
   }
@@ -35,20 +32,15 @@ export class WorkoutTimerModel {
     onTick: () => void
   ): void {
     if (this.isActive) {
-      clearInterval(
-        this.timerID
-      )
+      clearInterval(this.timerID)
     } else {
-      this.timerID = setInterval(
-        () => {
-          this.secondsRemaining -= 1
-          if (this.secondsRemaining <= 0) {
-            this.nextPhase()
-          }
-          onTick()
-        },
-        1000
-      ) as number
+      this.timerID = setInterval(() => {
+        this.secondsRemaining -= 1
+        if (this.secondsRemaining <= 0) {
+          this.nextPhase()
+        }
+        onTick()
+      }, 1000) as number
     }
     this.isActive = !this.isActive
   }
@@ -62,9 +54,7 @@ export class WorkoutTimerModel {
       this.secondsRemaining = this.workDuration
       this.currentRound += 1
       if (this.currentRound > this.totalRounds) {
-        clearInterval(
-          this.timerID
-        )
+        clearInterval(this.timerID)
         this.isActive = false
         this.currentRound = this.totalRounds
       }
@@ -72,9 +62,7 @@ export class WorkoutTimerModel {
   }
 
   resetWorkout(): void {
-    clearInterval(
-      this.timerID
-    )
+    clearInterval(this.timerID)
     this.isActive = false
     this.isWorkPhase = true
     this.currentRound = 1
@@ -83,14 +71,8 @@ export class WorkoutTimerModel {
 
   getRounds(): number[] {
     const out: number[] = []
-    for (
-      let i = 1;
-      i <= this.totalRounds;
-      i++
-    ) {
-      out.push(
-        i
-      )
+    for (let i = 1; i <= this.totalRounds; i++) {
+      out.push(i)
     }
     return out
   }
